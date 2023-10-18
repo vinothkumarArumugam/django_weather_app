@@ -4,8 +4,8 @@ import urllib.request
 def index (request):
     if request.method == 'POST' :
         city=request.POST['city']
-        source=urllib.request.urlopen('http://api.openweathermap.org/data/2.5/weather?q='+city+'&appid=53723b4f86d934e6ece2999434aa787a').read()
-        list_of_data=json.loads(source)
+        source=urllib.request.urlopen('http://api.openweathermap.org/data/2.5/weather?q='+city+'&appid="use your own api here"').read()
+        list_of_data=json.loads(source)            ##json.loads for objects,json.load(open()) for url(links)                                                    #######
         data = { 
             "country_code": str(list_of_data['sys']['country']), 
             "coordinate": str(list_of_data['coord']['lon']) + ' '
