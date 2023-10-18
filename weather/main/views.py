@@ -1,10 +1,10 @@
 from django.shortcuts import render
 import json
-import urllib.request
+import urllib.request                ##link to get apikey https://openweathermap.org/api
 def index (request):
     if request.method == 'POST' :
         city=request.POST['city']
-        source=urllib.request.urlopen('http://api.openweathermap.org/data/2.5/weather?q='+city+'&appid="use your own api here"').read()
+        source=urllib.request.urlopen('http://api.openweathermap.org/data/2.5/weather?q='+city+'&appid="use your own apikey here"').read()
         list_of_data=json.loads(source)            ##json.loads for objects,json.load(open()) for url(links)                                                    #######
         data = { 
             "country_code": str(list_of_data['sys']['country']), 
